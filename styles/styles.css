@@ -1,0 +1,17 @@
+#final-answer {
+  font-size: 24px;
+}
+
+body {
+  background-color: #FFE4C4;
+}
+
+#grade {
+  font-family: 'Playfair Display', serif;
+  font-size: 35px
+}
+
+#topic {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px
+}

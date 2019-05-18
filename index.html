@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Average Exam Results</title>
+  <link href="styles/bootstrap.min.css" rel="stylesheet" />
+  <link href="styles/styles.css" rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+</head>
+
+<body>
+    
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        </br>
+      </br>
+        <h1 id='topic'>Exam Results Average Calculator</h1>
+        <p class="lead">
+          <blockquote class="blockquote">
+            <p class="mb-0">Ever felt the need to know your grade given all your exam results?</p>
+          </br> 
+          </br>
+          </br>
+          </br>
+         </br>
+          </blockquote>
+        </p>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <div class="input-group input-group-lg">
+          <input max='100' min='0' id='scores' type="text" placeholder='Enter your score eg. 65, 34, 88'
+            class="form-control" />
+          <div class="input-group-append">
+            <button class="btn btn-info" type="button" onclick='onCalculateClicked()'>Calculate</button>
+            <button onclick='onClearClicked()'class="btn btn-danger" type="button">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3 justify-content-center">
+      <h1 id='grade'>Enter results to begin...</h1>
+    </div>
+  </div>
+</body>
+
+<script>
+   function onCalculateClicked() {
+    let input= document.getElementById('scores').value;
+    let scores= input.split(',');
+
+    let totalScores=0;
+
+    for(let score of scores) {
+      console.log(score.trim()); //alert also can instead of console.log
+      let scoreInt = parseInt(score.trim());
+      if (scoreInt<0 || scoreInt >100 || isNaN(score) ) {
+        document.getElementById('grade').innerHTML = 'Your input is wrong you stupid!!';
+        return;
+      }
+      totalScores= totalScores + scoreInt ;
+
+    }
+
+    let average = totalScores/scores.length;
+    
+    console.log(Math.round(average)); //math.round removes decimal
+    document.getElementById('grade').innerHTML = 'Your grade is ' + getGrade(parseInt(average)) + ' and your average is ' + parseInt(average)+ '%';
+    console.log(getGrade(average));
+
+  }
+  function getGrade(average){
+        
+        if(average >74 && average <= 100) {
+          return 'A1'
+        }
+        else if(average >= 70 && average < 74) {
+          return 'A2';
+        }
+        else if(average >65 && average <69) {
+          return 'B3';
+        }
+        else if(average >60 && average <65) {
+          return 'B4';
+        }
+        else if(average >55 && average <60) {
+          return 'C5';
+        }
+        else if(average >50 && average <55) {
+          return 'C6';
+        }
+        else if(average >45 && average <50) {
+          return 'D7';
+        }
+        else if(average >40 && average <45) {
+          return 'E8';
+        }
+        else if(average <40) {
+          return 'F9';
+        }
+      }
+
+  
+   function onClearClicked() {
+    clearInputs();
+  }
+
+  function clearInputs() {
+    document.getElementById('scores').value='';
+    document.getElementById('grade').innerHTML='';
+    
+
+  }
+
+
+</script>
+
+</html>
