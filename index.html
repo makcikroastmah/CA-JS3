@@ -76,33 +76,35 @@
   }
   function getGrade(average){
         
-        if(average >74 && average <= 100) {
+        if(average >= 75 && average <= 100) {
           return 'A1'
         }
-        else if(average >= 70 && average < 74) {
-          return 'A2';
+        if(average >= 70 && average <= 74) {
+          return 'A2'
         }
-        else if(average >65 && average <69) {
-          return 'B3';
+        if(average >= 65 && average <= 69) {
+          return 'B3'
         }
-        else if(average >60 && average <65) {
-          return 'B4';
+        if(average >= 60 && average <= 64) {
+          return 'B4'
         }
-        else if(average >55 && average <60) {
-          return 'C5';
+        if(average >= 55 && average <= 59) {
+          return 'C5'
         }
-        else if(average >50 && average <55) {
-          return 'C6';
+        if(average >= 50 && average <= 54) {
+          return 'C6'
         }
-        else if(average >45 && average <50) {
-          return 'D7';
+        if(average >= 45 && average <= 49) {
+          return 'D7'
         }
-        else if(average >40 && average <45) {
-          return 'E8';
+        if(average >= 40 && average <= 44) {
+          return 'E8'
         }
-        else if(average <40) {
-          return 'F9';
+        if(average >= 0 && average <= 39) {
+          return 'F9'
         }
+
+        
       }
 
   
